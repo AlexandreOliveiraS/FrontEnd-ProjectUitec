@@ -1,0 +1,82 @@
+
+<div class="container mt-4">
+
+    <div class="card">
+        <h1>Product Registation</h1>
+
+<form>
+    <div class="form-group">
+        <label>category</label>
+        <input type="text"  class="form-control" id="category" placeholder="Enter category">   
+    </div>
+
+    <div class="form-group">
+        <label>Nome Produto</label>
+        <input type="text" class="form-control" id="nomeproduto" placeholder="Enter product">
+    </div>
+
+    <div class="form-group">
+        <label>Valor Produto</label>
+        <input type="number" class="form-control" id="valorproduto" placeholder="Enter value product">
+    </div>
+
+    <div class="form-group">
+        <label>Data Vencimento</label>
+        <input type="date" class="form-control" id="datavencimento" placeholder="Enter date">
+    </div>
+
+    <div class="form-group">
+        <label>Quantidade Estoque</label>
+        <input type="number" class="form-control" id="quantidadeestoque" placeholder="Enter quantity">
+    </div>
+
+    <div class="form-group">
+        <label>Produto Perecivel</label>
+        <input type="checkbox" id="produtoperecivel">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4" (click)="save()">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="container mt-4">
+    <h1>Product Table</h1>
+
+
+    <table class="table">
+        <thead>
+            <h1 *ngIf="!isResultLoaded">Loading.................</h1>
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Nome Produto</th>
+                <th scope="col">Valor Produto</th>
+                <th scope="col">Data Vencimento</th>
+                <th scope="col">Quantidade Estoque</th>
+                <th scope="col">Produto Perecivel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let ProductItem of ProductArray">
+                <th scope="row">{{ProductItem.id }}</th>
+                <td>{{ProductItem.category | uppercase}}</td>
+                <td>{{ProductItem.nomeproduto }}</td>
+                <td>{{ProductItem.valorproduto }}</td>
+                <td>{{ProductItem.datavencimento }}</td>
+                <td>{{ProductItem.quantidadeestoque }}</td>
+                <td>{{ProductItem.produtoperecivel }}</td>
+                
+                    <td>
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </td>
+
+
+            </tr>
+        </tbody>
+    </table>
+</div>
